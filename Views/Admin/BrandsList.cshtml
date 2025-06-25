@@ -1,0 +1,101 @@
+﻿@model List<MyCollections.Models.Brand>
+
+    <h2 class="page-title">Brands</h2>
+
+    <div class="table-container">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var brand in Model)
+                {
+                <tr>
+                    <td>@brand.Name</td>
+                    <td>
+                        <a href="@Url.Action("EditBrand", "Admin" , new { id=brand.Id })" class="edit-btn">Edit</a>
+
+                        <form asp-action="DeleteBrand" asp-controller="Admin" method="post" style="display:inline;" onsubmit="return confirm('Are you sure?');">
+                            <input type="hidden" name="id" value="@brand.Id" />
+                            <button type="submit" class="action-btn">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <a href="@Url.Action("AddBrand", "Admin" )" class="add-btn">+ ADD</a>
+
+    <style>
+        .page-title {
+            text-align: center;
+            margin-top: 80px;
+            font-size: 28px;
+            color: white;
+        }
+
+        .table-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .styled-table {
+            width: 80%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+        }
+
+            .styled-table th, .styled-table td {
+                padding: 12px;
+                text-align: left;
+                color: white;
+            }
+
+            .styled-table th {
+                background: rgba(255, 255, 255, 0.2);
+            }
+
+            .styled-table tr:nth-child(even) {
+                background: rgba(255, 255, 255, 0.05);
+            }
+
+        .edit-btn {
+            text-decoration: none;
+            padding: 8px 16px;
+            background: #ffcc00;
+            color: black;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+            .edit-btn:hover {
+                background: #ffdb4d;
+            }
+
+        .add-btn {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            width: 150px;
+            padding: 10px;
+            background: #ff5722;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+            .add-btn:hover {
+                background: #ff784e;
+            }
+    </style>

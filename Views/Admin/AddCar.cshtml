@@ -1,0 +1,26 @@
+﻿@model MyCollections.Models.Car
+
+<h2>Add New Car</h2>
+
+<form asp-action="AddCar" asp-controller="Admin" method="post">
+    <label for="Name">Car Name:</label>
+    <input type="text" asp-for="Name" required />
+
+    <label for="BrandId">Brand:</label>
+    <select asp-for="BrandId" asp-items="ViewBag.Brands" required>
+        <option value="">Select a Brand</option>
+    </select>
+
+    <label for="ProductNo">Product No:</label>
+    <input type="text" asp-for="ProductNo" required />
+
+    <label for="Year">Year:</label>
+    <input type="text" asp-for="Year" required />
+
+    <label for="ImageUrl">Image URL:</label>
+    <input type="text" asp-for="ImagePath" required />
+
+    <button type="submit">Add Car</button>
+</form>
+
+<a href="@Url.Action("CarsList", "Admin")">Back to List</a>

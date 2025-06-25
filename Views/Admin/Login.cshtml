@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Admin Login";
+}
+
+<body>
+
+<h2>Admin Login</h2>
+
+<form method="post" action="/Admin/Login">
+    <div>
+        <label for="Username">Username</label>
+        <input type="text" id="Username" name="Username" required />
+    </div>
+
+    <div>
+        <label for="Password">Password</label>
+        <input type="password" id="Password" name="Password" required />
+    </div>
+
+    <button type="submit">Login</button>
+</form>
+
+</body>
+
+
+<style>
+    form div {
+        width: 200px;
+        border-radius: 15px 0 0 15px;
+        margin-bottom: 10px;
+    }
+
+input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+}
+
+</style>
+

@@ -1,0 +1,91 @@
+﻿@model List<MyCollections.Models.Car>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - MyCollections</title>
+    <link rel="stylesheet" href="~/css/site.css?v=1.0" />
+    <style>
+        body {
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+
+        .hero {
+            border-radius: 10px;
+            text-align: center;
+            padding: 50px 20px;
+            color: white;
+            background: radial-gradient(circle, #1E88E5, #FFEB3B); /* Bright blue to yellow */
+            margin: 5px 2px 2px 2px;
+        }
+        .search-bar {
+            margin-top: 20px;
+        }
+        .featured-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+        .card {
+            background: radial-gradient(circle, #FF5722, #D32F2F); /* Vibrant orange to red */
+            border-radius: 10px;
+            padding: 15px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+        }
+        .category-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 150px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>Welcome to My Hot Wheels Collection</h1>
+            <p>Explore my collection of classic and rare Hot Wheels cars.</p>
+        </div>
+    </div>
+
+    <h2 style="text-align:center; color:black;">🚗 Featured Cars</h2>
+    <div class="featured-container">
+        @foreach (var car in Model)
+        {
+            <div class="card">
+                <a href="@Url.Action("Details", "Cars", new { id = car.Id })">
+                    <img src="@car.ImagePath" alt="@car.Name">
+                </a>
+            </div>
+        }
+    </div>
+
+    <h2 style="text-align:center;">🔎 Browse Categories</h2>
+    <div class="categories">
+        <a href="@Url.Action("RareFinds", "Cars")" class="category-card">🏆 Rare Finds</a>
+        <a href="@Url.Action("Latest", "Cars")" class="category-card">🔥 Latest Additions</a>
+        <a href="@Url.Action("Classics", "Cars")" class="category-card">🏁 Classics</a>
+    </div>
+</body>
+</html>

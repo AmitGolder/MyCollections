@@ -1,0 +1,34 @@
+﻿<h2>Admin Dashboard</h2>
+
+<div class="admin-cards">
+    <a href="@Url.Action("CarsList", "Admin")" class="card">
+        <h3>Cars</h3>
+        <p>Manage car entries</p>
+    </a>
+    <a href="@Url.Action("BrandsList", "Admin")" class="card">
+        <h3>Brands</h3>
+        <p>Manage brand entries</p>
+    </a>
+</div>
+
+<style>
+    .admin-cards {
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .card {
+        padding: 20px;
+        background-color: #343a40;
+        color: white;
+        border-radius: 10px;
+        text-decoration: none;
+        text-align: center;
+        flex: 1;
+    }
+
+        .card:hover {
+            background-color: #495057;
+        }
+</style>

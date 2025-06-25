@@ -1,0 +1,17 @@
+﻿@model MyCollections.Models.Brand
+
+<h2>Edit Brand</h2>
+
+<form asp-action="EditBrand" asp-controller="Admin" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <label for="Name">Brand Name:</label>
+    <input type="text" asp-for="Name" required />
+
+    <label for="Country">Country:</label>
+    <input type="text" asp-for="Country" required />
+
+    <button type="submit">Save</button>
+</form>
+
+<a href="@Url.Action("BrandsList", "Admin")">Back to List</a>
